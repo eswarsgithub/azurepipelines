@@ -1,0 +1,13 @@
+---
+trigger: 
+  - master
+pool: Aws
+stages:
+  - stage: git
+    jobs:
+      - job: git
+        steps:
+          - bash: |
+              pwd
+
+    
