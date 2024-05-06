@@ -1,8 +1,8 @@
 ---
-trigger: 
-  - master
 Pipeline:
   - name: test
+    trigger: 
+      - master
     pool: Aws
     stages:
       - stage: git
@@ -24,7 +24,7 @@ Pipeline:
       - stage: 'Archive artifacts'
         steps:
           - publish: 'target/*.jar'
-            artifact: 'gameoflife war file'
+            artifact: 'gameoflife war file'        
 
 
     
