@@ -5,7 +5,7 @@
   stages:
   - stage: git
     jobs:
-    - job: 'git clone'
+    - job: 'gitclone'
       steps:
       - script: echo Building!
 
