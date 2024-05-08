@@ -1,30 +1,26 @@
 ---
-name: test
-trigger: 
-  - master
-pool: Aws
-stages:
-  - stage: git
-    steps:
-    - bash: |
-          git clone https://github.com/wakaleo/game-of-life.git
-          cd game-of-life
-  - stage: build
-    steps:
-    - task: Maven@3 
-      inputs:
-        goals: 'clean package'
-  - stage: 'publish test results'
-    steps:
-    - task: Maven@3 
-      inputs:
-        publishJUnitResults: true
-        testResultsFiles: '**/surefire-reports/*.xml'   
-  - stage: 'Archive artifacts'
-    steps:
-      - publish: 'target/*.jar'
-        artifact: 'gameoflife war file'
-...                    
-
-
-    
+  name: test
+  trigger: 
+    - master
+  stages:
+    - stage: git
+      steps:
+      - bash: |
+            git clone https://github.com/wakaleo/game-of-life.git
+            cd game-of-life
+    - stage: build
+      steps:
+      - task: Maven@3 
+        inputs:
+          goals: 'clean package'
+    - stage: 'publish test results'
+      steps:
+      - task: Maven@3 
+        inputs:
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/*.xml'   
+    - stage: 'Archive artifacts'
+      steps:
+        - publish: 'target/*.jar'
+          artifact: 'gameoflife war file'
+...          
