@@ -13,6 +13,7 @@
             pwd
       - task: Maven@3 
         inputs:
+          jdkVersionOption: '1.8'
           mavenPOMFile: 'game-of-life/pom.xml'
           goals: 'clean package'
           publishJUnitResults: true
