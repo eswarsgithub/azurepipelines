@@ -18,7 +18,7 @@
           goals: 'clean package'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/*.xml' 
-      - publish: 'game-of-life/gameoflife-web/target/*.jar'
+      - publish: 'game-of-life/gameoflife-web/target/*.war'
         artifact: 'gameoflife war file'          
             
         
