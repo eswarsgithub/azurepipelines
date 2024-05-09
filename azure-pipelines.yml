@@ -10,20 +10,14 @@
       - bash: |
             git clone https://github.com/wakaleo/game-of-life.git
             cd game-of-life
-    - job: 'Build_job'  
-      steps:
       - task: Maven@3 
         inputs:
           goals: 'clean package'
-    - job: 'junit_results'
-      steps:
-      - task: Maven@3 
-        inputs:
           publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/*.xml'      
-    - job: Artifacts
-      steps:
+          testResultsFiles: '**/surefire-reports/*.xml' 
       - publish: 'target/*.jar'
-        artifact: 'gameoflife war file'           
+        artifact: 'gameoflife war file'          
+            
+        
             
  
