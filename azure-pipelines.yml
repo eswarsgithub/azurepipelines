@@ -13,6 +13,7 @@
             pwd
       - task: Maven@3 
         inputs:
+          mavenPOMFile: 'game-of-life/pom.xml'
           goals: 'clean package'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/*.xml' 
