@@ -11,17 +11,17 @@
             git clone https://github.com/wakaleo/game-of-life.git
             cd game-of-life
             pwd
-#      - task: Maven@3 
-#        inputs:
-#          jdkVersionOption: '1.8'
-#          mavenPOMFile: 'game-of-life/pom.xml'
-#          goals: 'clean package'
-#          publishJUnitResults: true
-#          testResultsFiles: '**/surefire-reports/*.xml' 
+      - task: Maven@3 
+        inputs:
+          jdkVersionOption: '1.8'
+          mavenPOMFile: 'game-of-life/pom.xml'
+          goals: 'clean package'
+          publishJUnitResults: true
+          testResultsFiles: '**/surefire-reports/*.xml' 
       - bash: |
             pwd
             ls -lrt    
-      - publish: 'gameoflife-web/target/gameoflife.war'
+      - publish: 'game-of-life/gameoflife-web/target/*.war'
         artifact: 'gameoflife war file'          
             
         
