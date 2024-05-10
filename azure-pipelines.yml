@@ -18,6 +18,8 @@
           goals: 'clean package'
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/*.xml' 
+      - bash: |
+            pwd     
       - publish: 'gameoflife-web/target/gameoflife.war'
         artifact: 'gameoflife war file'          
             
