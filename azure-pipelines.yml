@@ -19,7 +19,8 @@
           publishJUnitResults: true
           testResultsFiles: '**/surefire-reports/*.xml' 
       - bash: |
-            pwd     
+            pwd
+            ll     
       - publish: 'gameoflife-web/target/gameoflife.war'
         artifact: 'gameoflife war file'          
             
