@@ -3,24 +3,24 @@
   trigger: 
     - master
   stages:
-  - stage: git
+  - stage: Build
     jobs:
-    - job: 'git_clone'
+    - job: 'Build'
       steps:
       - bash: |
             git clone https://github.com/wakaleo/game-of-life.git
             cd game-of-life
             pwd
-      - task: Maven@3 
-        inputs:
-          jdkVersionOption: '1.8'
-          mavenPOMFile: 'game-of-life/pom.xml'
-          goals: 'clean package'
-          publishJUnitResults: true
-          testResultsFiles: '**/surefire-reports/*.xml' 
+#      - task: Maven@3 
+#        inputs:
+#          jdkVersionOption: '1.8'
+#          mavenPOMFile: 'game-of-life/pom.xml'
+#          goals: 'clean package'
+#          publishJUnitResults: true
+#          testResultsFiles: '**/surefire-reports/*.xml' 
       - bash: |
             pwd
-            ll     
+            ls -lrt    
       - publish: 'gameoflife-web/target/gameoflife.war'
         artifact: 'gameoflife war file'          
             
