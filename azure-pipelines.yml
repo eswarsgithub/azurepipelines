@@ -21,7 +21,7 @@
       - bash: |
             pwd
             ls -lrt    
-      - publish: 'game-of-life/gameoflife-web/target/*.war'
+      - publish: 'game-of-life/gameoflife-web/target/gameoflife.war'
         artifact: 'gameoflife war file'          
             
         
